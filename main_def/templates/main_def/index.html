@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>     
+        <head>
+            <title>Личный Дневник</title>
+        </head>
+    
+   {% if user.is_authenticated %}
+   <li>User: {{ user.get_username }}</li>
+   <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+ {% else %}
+   <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+   
+ {% endif %} 
+</ul>
+    
+    
+    <div>
+        {% if page %}
+            {% for pages in page %}
+            <p>{{pages.title}}</p><p>{{pages.data}}</p>
+            <p>{{pages.text}}</p>
+            {% endfor %}
+        {% else %}
+            <a>Вы не авторизованы!!! Что бы увидеть свои дневник авторизируйтесь или зарегистрируйтесь</a>
+        {% endif %}
+    </div>
+    
+    </body>
+</html>

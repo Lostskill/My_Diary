@@ -7,9 +7,9 @@
     
    {% if user.is_authenticated %}
    <li>User: {{ user.get_username }}</li>
-   <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+   <li><a href="{% url 'login' %}">Logout</a></li>
  {% else %}
-   <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+   
    
  {% endif %} 
 </ul>
@@ -22,7 +22,7 @@
             <p>{{pages.text}}</p>
             {% endfor %}
         {% else %}
-            <a>Вы не авторизованы!!! Что бы увидеть свои дневник авторизируйтесь или зарегистрируйтесь</a>
+            <a>Вы не авторизованы или вы еще не создали ни одной страницы!!! Что бы увидеть свои дневник авторизируйтесь или зарегистрируйтесь</a>
         {% endif %}
     </div>
     

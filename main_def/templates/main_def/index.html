@@ -7,13 +7,15 @@
     
    {% if user.is_authenticated %}
    <li>User: {{ user.get_username }}</li>
+   <a>you id : {{ user.id }}</a>
    <li><a href="{% url 'login' %}">Logout</a></li>
  {% else %}
-   
-   
- {% endif %} 
+
+{% endif %} 
 </ul>
-    
+<div>
+    <a href="{% url 'create' %}" >Добавить Страницу в Дневник</a>
+</div>    
     
     <div>
         {% if page %}

@@ -5,15 +5,19 @@
             <title>Личный Дневник</title>
         </head>
     <div>
+        {% if user.is_authenticated %}
         <form method="post">
           {% csrf_token %}
 
           {% for f in form %}
-                {{ f }}
-          {% endfor %}
+          {{ f }}
 
-          <button type="submit">Войти</button>
+            {% endfor %}
+
+          <button type="submit">Добавить</button>
         </form>
+        {% else %}
+        {% endif%}
     </div>
 
     </body>
